@@ -16,8 +16,8 @@
   <h1>My Google Map</h1>
   <div id="map"></div>
   <script>
-    function initMap(){
-      // Map options
+function initMap(){
+  // Map options
       var options = {
         zoom:7,
         center:{lat:35.0844,lng:-106.6504}
@@ -32,8 +32,7 @@
         addMarker({coords:event.latLng});
       });
 	//Used to read in the .csv file
-	function readTextFile(file)
-	{
+	function readTextFile(file){
 	    var rawFile = new XMLHttpRequest();
 	    rawFile.open("GET", file, false);
 	    rawFile.onreadystatechange = function ()
@@ -51,8 +50,7 @@
 	    return rawFile.responseText;
 	}
 	//used to create a dictionary for each row that can be accessed by the column header
-	function createDataDict(headers, rows)
-	{
+	function createDataDict(headers, rows){
 		plots = [];
 		for (var i = 0; i<rows.length; i++) 
 	        { 
@@ -65,59 +63,100 @@
 	           	plots.push(dict);
 	        }
 	    return plots;
-    }
-    // Add Marker Function
-    function addMarker(props)
-    {
-        var marker = new google.maps.Marker({
-          position:props.coords,
-          map:map,
-          //icon:props.iconImage
+  }
+  // Add Marker Function
+  function addMarker(props){
+      var marker = new google.maps.Marker({
+        position:props.coords,
+        map:map,
+        //icon:props.iconImage
+      });
+
+      // Check for customicon
+      if(props.iconImage){
+        // Set icon image
+        marker.setIcon(props.iconImage);
+      }
+
+      // Check content
+      if(props.content){
+        var infoWindow = new google.maps.InfoWindow({
+          content:props.content
         });
 
-        // Check for customicon
-        if(props.iconImage){
-          // Set icon image
-          marker.setIcon(props.iconImage);
-        }
-
-        // Check content
-        if(props.content){
-          var infoWindow = new google.maps.InfoWindow({
-            content:props.content
-          });
-
-          marker.addListener('click', function(){
-            infoWindow.open(map, marker);
-          });
-        }
+        marker.addListener('click', function(){
+          infoWindow.open(map, marker);
+        });
+      }
+  }
+  class SpeciesAndPercent {
+    constructor(species, percent) {
+      this.species = species;
+      this.percent = percent;
     }
+  }
 
-	dataFileContents = readTextFile("practiceData.csv");
-	rows = dataFileContents.split('\n');
-	headers = rows[0].split(',');
+  function createSpeciesDict(headers, rows)
+  {
+    speciesDict = {};
+    for (var i = 0; i<rows.length; i++)
+          { 
+            data = rows[i].split(',');
+            sap = new SpeciesAndPercent(data[3], data[4]);
+            if (data[1] in speciesDict)
+            {
+              speciesDict[data[1]].push(sap);
+            } else{
+              speciesDict[data[1]] = [sap];
+            }
+    }
+    return speciesDict;
+  }
+
+	var dataFileContents = readTextFile("practiceData.csv");
+	var rows = dataFileContents.split('\n');
+	var headers = rows[0].split(',');
 	rows = rows.slice(1);
+  var plots = createDataDict(headers, rows);
 
-    plots = createDataDict(headers, rows);
+
+  var speciesFileContents = readTextFile("speciesData.csv");
+  rows = speciesFileContents.split('\n');
+  headers = rows[0].split(',');
+  rows = rows.slice(1);
+  var speciesDict = createSpeciesDict(headers, rows);
+  console.log(speciesDict.toString());
+
+
     var markers = [];
     
     for(var i = 0; i<plots.length; i++)
     {
+      species = ""
+      if (speciesDict[plots[i]['PrimaryKey']]){
+        for(var j = 0; j < speciesDict[plots[i]['PrimaryKey']].length; j++){
+          species += speciesDict[plots[i]['PrimaryKey']][j].species + ", ";
+        }
+      }
+
 
     	marker = {
     		coords: {lat:parseFloat(plots[i]['Latitude']), lng:parseFloat(plots[i]['Longitude'])},
-    		content: '<h2>PrimaryKey: ' + plots[i]['PrimaryKey'] + '<h2>'
+    		content: '<h2><b><i>PrimaryKey</i></b>: ' + plots[i]['PrimaryKey'] + '<h2>' + 
+                '<h2><b><i>Percent Bare Soil</i></b>: ' + plots[i]['BareSoilCover'] + '<h2>' + 
+                '<h2><b><i>Percent Gap 25-50</i></b>: ' + plots[i]['GapCover_25_50'] + '<h2>' +
+                '<h2><b><i>Percent Gap 51-100</i></b>: ' + plots[i]['GapCover_51_100'] + '<h2>' +
+                '<h2><b><i>Percent Gap 101-200</i></b>: ' + plots[i]['GapCover_101_200'] + '<h2>' +
+                '<h2><b><i>Percent > 200</i></b>: ' + plots[i]['GapCover_200_plus'] + '<h2>' +
+                '<h2><b><i>Soil Texture</i></b>: ' + plots[i]['PlotID'] + '<h2>' +
+                '<h2><b><i>Species</i></b>: ' + species + '<h2>' +
+                '<h2><b><i>Latitude</i></b>: ' + plots[i]['Latitude'] + '<h2>' +
+                '<h2><b><i>Longitude</i></b>: ' + plots[i]['Longitude'] + '<h2>'
     	};
     	markers.push(marker);
     }
 
-    // Array of markers
-    // var markers = [
-    //     {
-    //       coords:{lat:42.4668,lng:-70.9495},
-    //       content:'<h2>PrimaryKey: </h2><h2>Percent Bare Soil: </h2>'
-    //     }
-    // ];
+
 
     // Loop through markers
     for(var i = 0;i < markers.length;i++){
@@ -125,8 +164,8 @@
       addMarker(markers[i]);
     }
 
+}
 
-    }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqtipewDte4oUZoJpgFNsM7648NZCUYv8&callback=initMap"
     async defer></script>
