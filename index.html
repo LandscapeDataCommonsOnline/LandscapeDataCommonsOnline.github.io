@@ -23,6 +23,7 @@ function initMap(){
         center:{lat:35.0844,lng:-106.6504}
       }
 
+
       // New map
       var map = new google.maps.Map(document.getElementById('map'), options);
 
@@ -31,6 +32,10 @@ function initMap(){
         // Add marker
         addMarker({coords:event.latLng});
       });
+      var x = document.createElement("INPUT");
+      x.setAttribute("type", "checkbox");
+      document.body.appendChild(x);
+
 	//Used to read in the .csv file
 	function readTextFile(file){
 	    var rawFile = new XMLHttpRequest();
@@ -98,10 +103,14 @@ function initMap(){
 
   function createSpeciesDict(headers, rows)
   {
-    speciesDict = {};
+    var speciesDict = {};
+    var speciesList = []
     for (var i = 0; i<rows.length; i++)
           { 
             data = rows[i].split(',');
+            if (!speciesList.includes(data[3])){
+              speciesList.push(data[3]);
+            }
             sap = new SpeciesAndPercent(data[3], data[4]);
             if (data[1] in speciesDict)
             {
@@ -110,10 +119,25 @@ function initMap(){
               speciesDict[data[1]] = [sap];
             }
     }
-    return speciesDict;
+    items = [speciesDict, speciesList];
+    return items;
   }
 
-	var dataFileContents = readTextFile("practiceData.csv");
+  function geoJSONReader(file){
+    var dataFileContents = readTextFile(file);
+    var geoObject = JSON.parse(dataFileContents);
+    return geoObject.features;
+  }
+
+  function searchGeoJSON(primaryKey, features){
+    for (var i = 0; i<features.length; i++){
+      if (features[i].properties['PrimaryKey'] == primaryKey){
+        return features[i];
+      }
+    }
+  }
+
+	var dataFileContents = readTextFile("plotData.csv");
 	var rows = dataFileContents.split('\n');
 	var headers = rows[0].split(',');
 	rows = rows.slice(1);
@@ -124,44 +148,113 @@ function initMap(){
   rows = speciesFileContents.split('\n');
   headers = rows[0].split(',');
   rows = rows.slice(1);
-  var speciesDict = createSpeciesDict(headers, rows);
-  console.log(speciesDict.toString());
+  var items = createSpeciesDict(headers, rows);
+  var speciesDict = items[0];
+  var speciesList = items[1];
+
+  var features = geoJSONReader("species_NM_2019-04-28.geojson");
 
 
-    var markers = [];
+    var markers = {};
     
     for(var i = 0; i<plots.length; i++)
     {
-      species = ""
+      species = "<br>"
       if (speciesDict[plots[i]['PrimaryKey']]){
         for(var j = 0; j < speciesDict[plots[i]['PrimaryKey']].length; j++){
-          species += speciesDict[plots[i]['PrimaryKey']][j].species + ", ";
+          species += "*  " + speciesDict[plots[i]['PrimaryKey']][j].species + "<br>";
         }
       }
 
 
-    	marker = {
+    	marker = new google.maps.Marker({
     		coords: {lat:parseFloat(plots[i]['Latitude']), lng:parseFloat(plots[i]['Longitude'])},
     		content: '<h2><b><i>PrimaryKey</i></b>: ' + plots[i]['PrimaryKey'] + '<h2>' + 
                 '<h2><b><i>Percent Bare Soil</i></b>: ' + plots[i]['BareSoilCover'] + '<h2>' + 
                 '<h2><b><i>Percent Gap 25-50</i></b>: ' + plots[i]['GapCover_25_50'] + '<h2>' +
                 '<h2><b><i>Percent Gap 51-100</i></b>: ' + plots[i]['GapCover_51_100'] + '<h2>' +
                 '<h2><b><i>Percent Gap 101-200</i></b>: ' + plots[i]['GapCover_101_200'] + '<h2>' +
-                '<h2><b><i>Percent > 200</i></b>: ' + plots[i]['GapCover_200_plus'] + '<h2>' +
-                '<h2><b><i>Soil Texture</i></b>: ' + plots[i]['PlotID'] + '<h2>' +
+                '<h2><b><i>Percent Gap > 200</i></b>: ' + plots[i]['GapCover_200_plus'] + '<h2>' +
+                '<h2><b><i>Soil Texture</i></b>: ' + searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture'] + '<h2>' +
                 '<h2><b><i>Species</i></b>: ' + species + '<h2>' +
                 '<h2><b><i>Latitude</i></b>: ' + plots[i]['Latitude'] + '<h2>' +
-                '<h2><b><i>Longitude</i></b>: ' + plots[i]['Longitude'] + '<h2>'
-    	};
-    	markers.push(marker);
+                '<h2><b><i>Longitude</i></b>: ' + plots[i]['Longitude'] + '<h2>',
+        map: map
+
+
+    	});
+    	markers[plots[i]['PrimaryKey']] = marker;
+    }
+
+    // Loop through markers
+    for(var i = 0;i < plots.length;i++){
+      // Add marker
+      addMarker(markers[plots[i]['PrimaryKey']]);
+    }
+
+  //Create Event Listeners for Filters
+    var h = document.createElement("H1");
+    var t = document.createTextNode("Filter");
+    h.appendChild(t);
+    document.body.appendChild(h);
+
+
+    var h = document.createElement("H3");
+    var t = document.createTextNode("Soil Texture");
+    h.appendChild(t);
+    document.body.appendChild(h);
+    
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    x.addEventListener("click", filter);
+    document.body.appendChild(x);
+
+  
+
+    var h = document.createElement("H3");
+    var t = document.createTextNode("Species");
+    h.appendChild(t);
+    document.body.appendChild(h);
+
+    //access a species checkbox using the species as the key
+    var speciesCheckBoxes = {};
+
+    for (var i = 0; i<speciesList.length; i++){
+      var x = document.createElement("INPUT");
+      x.setAttribute("type", "checkbox");
+      x.addEventListener("click", filter);
+
+      speciesCheckBoxes[speciesList[i]] = x;
+
+      var label = document.createElement('label')
+      label.appendChild(document.createTextNode(speciesList[i]));
+
+      document.body.appendChild(x);
+      document.body.appendChild(label);
+      // empty = document.createElement("P");
+      // document.body.appendChild(empty);
     }
 
 
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "checkbox");
+    x.addEventListener("click", filter);
+    document.body.appendChild(x);
 
-    // Loop through markers
-    for(var i = 0;i < markers.length;i++){
-      // Add marker
-      addMarker(markers[i]);
+    function filter(){
+      for(var i = 0;i < plots.length;i++){
+        markers[plots[i]['PrimaryKey']].setMap(null);
+        console.log("endgame now bois");
+        // if (speciesDict[plots[i]['PrimaryKey']]) {
+        //   for (var j = 0; j<speciesDict[plots[i]['PrimaryKey']].length; j++){
+        //     if (speciesCheckBoxes[speciesDict[plots[i]['PrimaryKey']][j].species].checked){
+        //       markers[plots[i]['PrimaryKey']].setVisible(true);
+        //       break;
+        //     }
+
+        //   }
+        // }
+      }
     }
 
 }
@@ -169,8 +262,10 @@ function initMap(){
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqtipewDte4oUZoJpgFNsM7648NZCUYv8&callback=initMap"
     async defer></script>
-	<script>
-	
+
+    <script>
+
     </script>
+
 </body>
 </html>

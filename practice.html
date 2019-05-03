@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to create a Checkbox.</p>
+
+
+<script>
+  var h = document.createElement("H1");
+  var t = document.createTextNode("Filter");
+  h.appendChild(t);
+  document.body.appendChild(h);
+
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "checkbox");
+  x.addEventListener("click", doTheFunc);
+  document.body.appendChild(x);
+
+  var h = document.createElement("H2");
+  var t = document.createTextNode("Soil Texture");
+  h.appendChild(t);
+  document.body.appendChild(h);
+
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "checkbox");
+  x.addEventListener("click", doTheFunc);
+
+  var label = document.createElement('label')
+  label.appendChild(document.createTextNode('text for label after checkbox'));
+
+  var empty = document.createElement("P");
+
+  document.body.appendChild(x);
+  document.body.appendChild(label);
+  document.body.appendChild(empty);
+
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "checkbox");
+  x.addEventListener("click", doTheFunc);
+
+  var label = document.createElement('label')
+  label.appendChild(document.createTextNode('text for label after checkbox'));
+
+  document.body.appendChild(x);
+  document.body.appendChild(label);
+  empty = document.createElement("P");
+  document.body.appendChild(empty);
+
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "checkbox");
+  x.addEventListener("click", doTheFunc);
+
+  var label = document.createElement('label')
+  label.appendChild(document.createTextNode('text for label after checkbox'));
+
+  document.body.appendChild(x);
+  document.body.appendChild(label);
+  empty = document.createElement("P");
+  document.body.appendChild(empty);
+
+
+  var h = document.createElement("H2");
+  var t = document.createTextNode("Species");
+  h.appendChild(t);
+  document.body.appendChild(h);
+
+
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "checkbox");
+  x.addEventListener("click", doTheFunc);
+  document.body.appendChild(x);
+
+  function doTheFunc(){
+    console.log("We need to implement this function");
+  }
+</script>
+
+</body>
+</html>
