@@ -159,7 +159,7 @@ function initMap(){
         }
       }
 
-      if (!soilTypes.includes(searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture'])){
+      if (!soilTypes.includes(searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture']) && searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture'] != null){
       	soilTypes.push(searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture']);
       }
 
@@ -266,7 +266,10 @@ function initMap(){
         markerDict[plots[i]['PrimaryKey']].setVisible(false);
         if (speciesDict[plots[i]['PrimaryKey']]) {
           for (var j = 0; j<speciesDict[plots[i]['PrimaryKey']].length; j++){
-            if ((speciesCheckBoxes[speciesDict[plots[i]['PrimaryKey']][j].species].checked || !speciesFilter) && (soilCheckBoxes[searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture']].checked || !soilFilter)){
+          	if (speciesCheckBoxes[speciesDict[plots[i]['PrimaryKey']][j].species] != null )
+            if (((speciesCheckBoxes[speciesDict[plots[i]['PrimaryKey']][j].species] != null && speciesCheckBoxes[speciesDict[plots[i]['PrimaryKey']][j].species].checked ) || !speciesFilter) && 
+            	((soilCheckBoxes[searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture']] != null && soilCheckBoxes[searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture']].checked) || !soilFilter))
+            {
               markerDict[plots[i]['PrimaryKey']].setVisible(true);
               break;
             }
@@ -277,13 +280,28 @@ function initMap(){
     }
 
     function soilFilter(){
-    	soilFilter = true;
-    	filter();
+    	for (var i = 0; i<soilTypes.length; i++){
+	        if(soilCheckBoxes[soilTypes[i]].checked){
+		    	soilFilter = true;
+		    	filter();
+		    	return;
+	        }
+	    }
+	    soilFilter = false;
+	    filter();
     }
 
     function speciesFilter(){
-    	speciesFilter = true;
+    	for (var i = 0; i<speciesList.length; i++){
+    		if (speciesCheckBoxes[speciesList[i]].checked){
+    			speciesFilter = true;
+    			filter();
+    			return;
+    		}
+    	}
+    	speciesFilter = false;
     	filter();
+    	
     }
 
    	function clearFilters(){
@@ -297,7 +315,7 @@ function initMap(){
      	   speciesCheckBoxes[speciesList[i]].checked = false;
     	}
     	for (var i = 0; i<soilTypes.length; i++){
-	        soilCheckBoxes[searchGeoJSON(plots[i]['PrimaryKey'], features).properties['Texture']].checked = false;
+	        soilCheckBoxes[soilTypes[i]].checked = false;
 	    }
    	}
 
