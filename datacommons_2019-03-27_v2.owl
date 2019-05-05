@@ -1,0 +1,1378 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#"
+     xml:base="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:geosparql="http://www.opengis.net/ont/geosparql#"
+     xmlns:oboe-base="http://ecoinformatics.org/oboe/oboe.1.2/"
+     xmlns:oboe-core="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#"
+     xmlns:oboe-standards="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#"
+     xmlns:oboe-characteristics="http://ecoinformatics.org/oboe/oboe.1.2/oboe-characteristics.owl#">
+    <owl:Ontology rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl">
+        <owl:imports rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-characteristics.owl"/>
+        <owl:imports rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl"/>
+        <owl:imports rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl"/>
+        <owl:imports rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:comment>Copyright (c) 2006-2016 The Regents of the University of California.  All rights reserved. This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.</rdfs:comment>
+        <rdfs:comment>This ontology contains general terms that are common across OBOE extensions.  It extends the OBOE Core model by importing ontologies specific to measurement characteristics, measurement standards, spatial entities, temporal entities, biological taxa, and anatomical entities.</rdfs:comment>
+        <rdfs:label>oboe</rdfs:label>
+        <owl:versionInfo>Version 1.2</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#derivativeOf -->
+
+    <owl:ObjectProperty rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#derivativeOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity -->
+
+    <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity">
+        <owl:equivalentClass rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Plot"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ARLU -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ARLU">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BAAB -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BAAB">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BOGR2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BOGR2">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BRTE -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BRTE">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BareSoil -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BareSoil">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Bromus_tectorum -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Bromus_tectorum">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ScientificName"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CEMO2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CEMO2">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CanopyGap -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CanopyGap">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasurementType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CanopyGap"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasurementType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#DAPU7 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#DAPU7">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#DEPIO2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#DEPIO2">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ELEL5 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ELEL5">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ERJA -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ERJA">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#FAPA -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#FAPA">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#FLCE -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#FLCE">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GUSA2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GUSA2">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GeospatialDataset -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GeospatialDataset"/>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasurementType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Herbaceous -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Herbaceous">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+        <owl:disjointWith rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Woody"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#JUMO -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#JUMO">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Juniperus"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Juniperus -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Juniperus">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ScientificName"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#L -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#L">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loam"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#SoilTexture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#LATR2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#LATR2">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Larrea_tridentata"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Landsat -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Landsat">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Raster"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfOverlaps"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#NDVI"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#NDVI"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Larrea_tridentata -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Larrea_tridentata">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ScientificName"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loam -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loam">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#L"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#SoilTexture"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loamy -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loamy">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MESC -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MESC">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/sf#Polygon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MUPO2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MUPO2">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/sf#Polygon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#NDVI -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#NDVI">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Raster"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#derivativeOf"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Landsat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfOverlaps"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Landsat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PAIN2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PAIN2">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PIED -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PIED">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PRGL2 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PRGL2">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Plot -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Plot">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfContains"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/gml#Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#QUGA -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#QUGA">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#RHTR -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#RHTR">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Raster -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Raster">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GeospatialDataset"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#S -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#S">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#SoilTexture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#SoilTexture"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sandy -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sandy">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ScientificName -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ScientificName">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-characteristics.owl#Name"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#SoilTexture -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#SoilTexture">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasurementType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue"/>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#THPE4 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#THPE4">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Woody -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Woody">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#YUEL -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#YUEL">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Yucca_elata"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Yucca_elata -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Yucca_elata">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ScientificName"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#herbaceous -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#herbaceous">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#woody -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#woody">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-106.786187_32.4243040000001)"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Plot"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BAAB"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#FLCE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#LATR2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loam"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-107.023994_31.835274)"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Plot"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GUSA2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PRGL2"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#YUEL"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#17091811101871152017-09-01 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#17091811101871152017-09-01">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-105.897639158_35.9197281630001)"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Plot"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#sfWithin"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehContains"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loam"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42 -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehContains"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-105.897639158_35.9197281630001) -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-105.897639158_35.9197281630001)">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/gml#Point"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/sf#Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-106.786187_32.4243040000001) -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-106.786187_32.4243040000001)">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/gml#Point"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/sf#Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-107.023994_31.835274) -->
+
+    <owl:Class rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-107.023994_31.835274)">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#17091811101871152017-09-01"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/gml#Point"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#hasGeometry"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/sf#Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/gml#Point -->
+
+    <rdf:Description rdf:about="http://www.opengis.net/ont/gml#Point">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://www.opengis.net/ont/sf#Point"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GeospatialDataset"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.opengis.net/ont/sf#Polygon -->
+
+    <rdf:Description rdf:about="http://www.opengis.net/ont/sf#Polygon">
+        <rdfs:subClassOf rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GeospatialDataset"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#L -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#L"/>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#0 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#0">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#herbaceous"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#0.67 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#0.67">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BAAB"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#1.67 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#1.67">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#YUEL"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#13 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#13">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#LATR2"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#14 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#14">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PRGL2"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#15.25 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#15.25">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#herbaceous"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-105.897639158_35.9197281630001)"/>
+        <geosparql:asWKT>POINT(-106.786187 32.4243040000001)^^geo:wktLiteral</geosparql:asWKT>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-106.786187_32.4243040000001)"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+            </owl:Restriction>
+        </rdf:type>
+        <geosparql:asWKT>POINT (-107.023994 31.835274)^^geo:wktLiteral</geosparql:asWKT>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#17091811101871152017-09-01 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#17091811101871152017-09-01">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-107.023994_31.835274)"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.opengis.net/ont/geosparql#ehEquals"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#17091811101871152017-09-01"/>
+            </owl:Restriction>
+        </rdf:type>
+        <geosparql:asWKT>POINT(-105.897639158,  35.9197281630001)^^geo:wktLiteral</geosparql:asWKT>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#2.67 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#2.67">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GUSA2"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Species"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MLRA"/>
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42"/>
+        <geosparql:asWKT>POLYGON(-108.98669   28.97026, -102.03568   35.38660, -108.98669 35.38660 , -102.03568 28.97026)^^geo:wktLiteral</geosparql:asWKT>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#44 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#44">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#woody"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#51.64 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#51.64">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CanopyGap"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#68.7 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#68.7">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BareSoil"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#79.7 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#79.7">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Height"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#woody"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Centimeter"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#8 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#8">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BareSoil"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Cover"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#82.7 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#82.7">
+        <rdf:type rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#containsMeasurementsOfType"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CanopyGap"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://ecoinformatics.org/oboe/oboe.1.2/oboe-standards.owl#Percent"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#89.7 -->
+
+    <owl:NamedIndividual rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#89.7"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ARLU"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BAAB"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#BOGR2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#CEMO2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#DAPU7"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#DEPIO2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ELEL5"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#ERJA"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#FAPA"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#FLCE"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#GUSA2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#JUMO"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#LATR2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MESC"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#MUPO2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PAIN2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PIED"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#PRGL2"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#QUGA"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#RHTR"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#THPE4"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#YUEL"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Bromus_tectorum"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Juniperus"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Larrea_tridentata"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Yucca_elata"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Herbaceous"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Woody"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#herbaceous"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#woody"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#L"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loam"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#S"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Loamy"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sand"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Sandy"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Mapunit"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#37"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#42"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#Raster"/>
+            <rdf:Description rdf:about="http://www.opengis.net/ont/gml#Point"/>
+            <rdf:Description rdf:about="http://www.opengis.net/ont/sf#Polygon"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16081114554791692016-09-01"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#16100310170018152016-09-01"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#17091811101871152017-09-01"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-105.897639158_35.9197281630001)"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-106.786187_32.4243040000001)"/>
+            <rdf:Description rdf:about="http://ecoinformatics.org/oboe/oboe.1.2/oboe.owl#c(-107.023994_31.835274)"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
