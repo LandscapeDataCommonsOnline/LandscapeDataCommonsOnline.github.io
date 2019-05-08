@@ -1,0 +1,39 @@
+html, body{
+    background: #eee;
+    margin: 0; 
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p, div, a, li, td, th{
+    font-family: "Gill Sans", sans-serif;
+}
+
+#map{
+      height:400px;
+      width:90%;
+      margin: 10px auto; 
+}
+
+.main{
+    width: 90%;
+    margin: 0 auto;
+    background: #D3BC8C
+}
+
+.center{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.filters{
+    width: 90%;
+    margin: 0 auto; 
+    display: grid; 
+    grid-template-columns: repeat(3,  1fr);
+}
+
+#clearFilters{
+    margin: 50px auto; 
+}

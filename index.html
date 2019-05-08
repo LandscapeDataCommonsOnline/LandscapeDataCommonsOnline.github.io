@@ -4,22 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <title>Landscape Data Commons</title>
-  <style>
-    #map{
-      height:400px;
-      width:100%;
-    }
-  </style>
 </head>
 <body>
-  <h1>Welcome to the Landscape Data Commons</h1>
+  <div class = "main">
+
+
+  <h1 class = "center">Welcome to the Landscape Data Commons</h1>
   <div id="map"></div>
+  <h2 class = "center">Filters</h2>
+  <hr style = "width: 80%;">
+  <div class = "filters">
+    <div id = "soilFilter">
+      <h4>Soil Texture: </h4> 
+    </div>
+    <div id = "speciesFilter">
+      <h4>Species: </h4>
+    </div>
+    <div id = "clearFilters"></div>
+  </div>
+
   <script>
 function initMap(){
   // Map options
       var options = {
-        zoom:7,
+        zoom:6,
         center:{lat:35.0844,lng:-106.6504}
       }
 
@@ -194,70 +204,71 @@ function initMap(){
     var t = document.createTextNode("Clear Filters");
 	x.appendChild(t);
 	x.addEventListener("click", clearFilters);
-	document.body.appendChild(x);
+	document.getElementById("clearFilters").appendChild(x);
 
 
-  //Create Event Listeners for Filters
-    var h = document.createElement("H1");
-    var t = document.createTextNode("Filter");
-    h.appendChild(t);
-    document.body.appendChild(h);
-
-
-    var h = document.createElement("H3");
-    var t = document.createTextNode("Soil Texture");
-    h.appendChild(t);
-    document.body.appendChild(h);
-    
+  
 
 	//access a species checkbox using the species as the key
     var soilCheckBoxes = {};
 
-    for (var i = 0; i<soilTypes.length; i++){
+    //Create and append select list
+    var soilList = document.createElement("select");
+    soilList.id = "mySelect";
+    document.getElementById("soilFilter").appendChild(soilList);
+
+
+
+    for (var i = 0; i < soilTypes.length; i++){
       var x = document.createElement("INPUT");
-      x.setAttribute("type", "checkbox");
+      x.type = "checkbox";
       x.addEventListener("click", soilFilter);
 
       soilCheckBoxes[soilTypes[i]] = x;
 
-      var label = document.createElement('label')
-      label.appendChild(document.createTextNode(soilTypes[i]));
+      //var label = document.createElement('label')
+      //label.appendChild(document.createTextNode(soilTypes[i]));
+      x.textContent = soilTypes[i];
+      
+      var option = document.createElement("option");
+      option.appendChild(x);
+      soilList.appendChild(option);
 
-      document.body.appendChild(x);
-      document.body.appendChild(label);
+      //document.body.appendChild(x);
+      //document.body.appendChild(label);
 
     }
 
   
-
-    var h = document.createElement("H3");
-    var t = document.createTextNode("Species");
-    h.appendChild(t);
-    document.body.appendChild(h);
+    //Create and append select list
+    var speciesSelectList = document.createElement("select");
+    speciesSelectList.id = "mySelect";
+    document.getElementById("speciesFilter").appendChild(speciesSelectList);
 
     //access a species checkbox using the species as the key
     var speciesCheckBoxes = {};
 
     for (var i = 0; i<speciesList.length; i++){
       var x = document.createElement("INPUT");
-      x.setAttribute("type", "checkbox");
+      x.type = "checkbox";
       x.addEventListener("click", speciesFilter);
 
       speciesCheckBoxes[speciesList[i]] = x;
 
-      var label = document.createElement('label')
-      label.appendChild(document.createTextNode(speciesList[i]));
+      x.textContent = speciesList[i];
 
-      document.body.appendChild(x);
-      document.body.appendChild(label);
+      //var label = document.createElement('label')
+      //label.appendChild(document.createTextNode(speciesList[i]));
+
+      //document.body.appendChild(x);
+      //document.body.appendChild(label);
+
+      var option = document.createElement("option");
+      option.appendChild(x);
+      speciesSelectList.appendChild(option);
 
     }
 
-
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "checkbox");
-    x.addEventListener("click", filter);
-    document.body.appendChild(x);
 	speciesFilter = false;
 	soilFilter = false;
     function filter(){
@@ -328,6 +339,8 @@ function initMap(){
     <script>
 
     </script>
+
+  </div>
 
 </body>
 </html>
