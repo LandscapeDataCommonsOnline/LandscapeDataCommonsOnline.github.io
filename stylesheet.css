@@ -41,20 +41,26 @@ h1, h2, h3, h4, h5, h6, p, div, a, li, td, th{
 
 #soilChecks{
   display: none;
-  border: 1px #dadada solid;
+  border: 1px black solid;
+  width: 80%;
 }
 
 #soilChecks label {
   display: block;
+  background: white;
+  width: 100%;
 }
 
 #speciesChecks{
   display: none;
-  border: 1px #dadada solid;
+  border: 1px black solid;
+  width: 80%;
 }
 
 #speciesChecks label {
   display: block;
+  background: white;
+  width: 100%;
 }
 
 .selectBox select {
