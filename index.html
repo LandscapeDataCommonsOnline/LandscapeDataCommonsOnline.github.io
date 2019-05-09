@@ -18,18 +18,58 @@
   <div class = "filters">
     <div id = "soilFilter">
       <h4>Soil Texture: </h4> 
+      <div class="selectBox" onclick="showSoilCheckboxes()" disabled>
+        <select>
+          <option>Select a soil type to filter by</option>
+        </select>
+      </div>
+      <div id="soilChecks"></div>
     </div>
     <div id = "speciesFilter">
       <h4>Species: </h4>
+      <div class="selectBox" onclick="showSpeciesCheckboxes()" disabled>
+        <select>
+          <option>Select a species to filter by</option>
+        </select>
+      </div>
+      <div id="speciesChecks"></div>
     </div>
     <div id = "clearFilters"></div>
   </div>
 
   <script>
+
+    var expandedSoil = false;
+
+      function showSoilCheckboxes() {
+        var checkboxes = document.getElementById("soilChecks");
+        if (!expandedSoil) {
+          checkboxes.style.display = "block";
+          expandedSoil = true;
+        } else {
+          checkboxes.style.display = "none";
+          expandedSoil = false;
+        }
+      }
+      
+      var expandedSpecies = false;
+
+      function showSpeciesCheckboxes() {
+        var checkboxes = document.getElementById("speciesChecks");
+        if (!expandedSpecies) {
+          checkboxes.style.display = "block";
+          expandedSpecies = true;
+        } else {
+          checkboxes.style.display = "none";
+          expandedSpecies = false;
+        }
+      }
+
 function initMap(){
   // Map options
       var options = {
         zoom:6,
+        mapTypeId: google.maps.MapTypeId.HYBRID,
         center:{lat:35.0844,lng:-106.6504}
       }
 
@@ -139,6 +179,8 @@ function initMap(){
     }
   }
 
+  
+
 	var dataFileContents = readTextFile("plotData.csv");
 	var rows = dataFileContents.split('\n');
 	var headers = rows[0].split(',');
@@ -206,17 +248,10 @@ function initMap(){
 	x.addEventListener("click", clearFilters);
 	document.getElementById("clearFilters").appendChild(x);
 
-
   
 
 	//access a species checkbox using the species as the key
     var soilCheckBoxes = {};
-
-    //Create and append select list
-    var soilList = document.createElement("select");
-    soilList.id = "mySelect";
-    document.getElementById("soilFilter").appendChild(soilList);
-
 
 
     for (var i = 0; i < soilTypes.length; i++){
@@ -226,24 +261,16 @@ function initMap(){
 
       soilCheckBoxes[soilTypes[i]] = x;
 
-      //var label = document.createElement('label')
-      //label.appendChild(document.createTextNode(soilTypes[i]));
-      x.textContent = soilTypes[i];
-      
-      var option = document.createElement("option");
-      option.appendChild(x);
-      soilList.appendChild(option);
+      var label = document.createElement('label');
+      label.appendChild(x);
+      label.appendChild(document.createTextNode(soilTypes[i]));
 
-      //document.body.appendChild(x);
-      //document.body.appendChild(label);
+
+      document.getElementById("soilChecks").appendChild(label);
 
     }
 
-  
-    //Create and append select list
-    var speciesSelectList = document.createElement("select");
-    speciesSelectList.id = "mySelect";
-    document.getElementById("speciesFilter").appendChild(speciesSelectList);
+
 
     //access a species checkbox using the species as the key
     var speciesCheckBoxes = {};
@@ -255,17 +282,12 @@ function initMap(){
 
       speciesCheckBoxes[speciesList[i]] = x;
 
-      x.textContent = speciesList[i];
+      var label = document.createElement('label');
+      label.appendChild(x);
+      label.appendChild(document.createTextNode(speciesList[i]));
 
-      //var label = document.createElement('label')
-      //label.appendChild(document.createTextNode(speciesList[i]));
 
-      //document.body.appendChild(x);
-      //document.body.appendChild(label);
-
-      var option = document.createElement("option");
-      option.appendChild(x);
-      speciesSelectList.appendChild(option);
+      document.getElementById("speciesChecks").appendChild(label);
 
     }
 
